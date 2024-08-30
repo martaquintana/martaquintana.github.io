@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marta Quintana | Software Debeloper</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/jpg" href="./images/home/logo.png"/>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <figure>
+            <a href="./images/home/logo.png">
+              <img src="./images/home/logo.png" alt="Logo" class="logo">
+            </a>
+        </figure>
+        <span class="name">MARTA QUINTANA PORTALES</span>
+      </div>
+      <nav class="nav-menu">
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#art">Art</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
+      <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </header>
+  <main>  
+
+    <!-- Mini Game / A-Frame -->
+    <section id="home">
+      <div id="mini-game" class="aframe-container">
+        <a-scene embedded>
+          <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
+                animation="property: rotation; to: 0 405 0; loop: true; dur: 4000; easing: linear"></a-box>
+          <a-sphere position="1 1.25 -5" radius="1.25" color="#EF2D5E"
+                    animation="property: position; to: 1 2.5 -5; loop: true; dir: alternate; dur: 2000"></a-sphere>
+          <a-cylinder position="0 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
+                      animation="property: color; to: #FF0000; loop: true; dir: alternate; dur: 1000"></a-cylinder>
+          <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+          <a-sky color="#ECECEC"></a-sky>
+        </a-scene>
+      </div>
+      
+      <div >
+        <h1>Hey, Welcome to my website!<br> I'm Marta</h1>
+        <p>
+          An Audiovisual and Multimedia Systems Engineer with a deep passion for computer graphics, videogames and virtual reality.
+          <br>
+          Feel free to explore my portfolio to see how I blend creativity with technical expertise in these projects.
+      </p>
+        <div>
+          <a href="#projects" class="btn no-link">Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>ABOUT</h2>
+      <div class="contact-container">
+        <figure>
+          <a href="./images/about/logo.png">
+            <img id="me" class="h-400" src="./images\about\me_pixar_expo.jpeg" alt="Me" />
+          </a>
+      </figure>
+      <div class="intro">
+          <h3>¡Hello! Get to know me!</h3>
+          <h3></h3>
+      </div>
+        <div class="container">
+          <div class="column">
+            <h3 class="about__content-title">My name is Marta Quintana Portales.</h3>
+            <div class="about__content-details">
+              <p class="about__content-details-para">
+              I'm a <strong>Software Developer</strong>
+              with experience in Full Stack development, passionate about technology, art, and nature. Currently, I work part-time at as a Research Assistant at Rey Juan Carlos University, contributing to web development and educational robotics projects.</p>
+              </p>
+              
+              <p class="about__content-details-para">
+                <p>I hold a <strong>Bachelor's degree in Audiovisual Systems and Multimedia Engineering</strong> from Rey Juan Carlos University and a <strong>Master’s degree in Computer Graphics, Videogames and Virtual Reality</strong> from the same institution.</p>
+                <p>From <strong>Borox, a small village located between Madrid and Toledo, Spain.</strong></p>
+              <p>In my free time, I enjoy <strong>photography, drawing, attending concerts, hiking and cycling</strong>. Also I love exploring nature and animals, I love capturing special moments with my camera and exploring the natural beauty on my hikes.</p>
+              <p>Each of these hobbies allows me to express my creativity in different ways.</p>
+              </p>
+              <p class="about__content-details-para no-link">
+                <strong>I'm open to new Job opportunities where I can
+                contribute, learn and grow.</strong>
+              </p>
+            </div>
+            <a href="#contact" class="btn btn--med btn--theme dynamicBgClr no-link">Contact</a>
+          </div>
+          <div class="column">
+            <div class="about__content-skills">
+              <h3 >My Skills</h3>
+              <div class="skills">
+                <div class="skills__skill">HTML</div>
+                <div class="skills__skill">CSS</div>
+                <div class="skills__skill">JavaScript</div>
+                <div class="skills__skill">TypeScript</div>
+                <div class="skills__skill">AFRAME</div>
+                <div class="skills__skill">DOCKER</div>
+                <div class="skills__skill">UNITY</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">Matlab</div>
+                <div class="skills__skill">C++/C#</div>
+                <div class="skills__skill">GIT</div>
+                <div class="skills__skill">Github</div>
+                <div class="skills__skill">React</div>
+                <div class="skills__skill">Redux</div>
+              </div>
+            </div>
+            <div class="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                  <img src="./images/about/bw.jpeg" alt="Image 6">
+              </div>
+            
+                  <div class="carousel-item active">
+                      <img src="./images/about/photography.jpeg" alt="Image 1">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="./images/about/art-monet.jpeg" alt="Image 2">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="./images/about/cycling.jpeg" alt="Image 3">
+                  </div>
+                  <div class="carousel-item active">
+                    <img src="./images/about/forest.jpeg" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/about/hiking.jpeg" alt="Image 5">
+                </div>
+              </div>
+              <button class="prev" onclick="prevSlide()">&#10094;</button>
+              <button class="next" onclick="nextSlide()">&#10095;</button>
+          </div>
+          </div>
+      </div>
+    </section>
+
+
+
+    <section id="projects">
+      <h2>PROJECTS</h2>
+      <div class="projects-container project-content">
+        <p>In this section, I will showcase some of the projects I have developed. <br>For a comprehensive overview of my professional experience,<br> including previous positions and detailed work history,<br> please refer to my CV.
+          <br><br>
+          <a class="button" href="assets/cv.pdf" download>Download CV</a></p>
+      </div>
+
+    
+            <div class="projects-container">
+            <div class="project-item left">
+                <div class="project-content">
+                    <h3>Master's Thesis at <a class="no-link" href="https://www.seddi.com/" target="_blank">SEDDI</a>:<br> Parametric Pattern Editing</h3>
+                    <p>This project focused on developing a parametric editing tool that allows creating measurement points and modifying 2D and 3D patterns, as well as solving an optimization problem to preserve garment style between avatars with different anthropomorphic measurements.</p>
+                    <p>The project was developed in SEDDI Author as part of a collaboration between SEDDI and the Rey Juan Carlos University (URJC).</p>
+                    <a class="button" href="https://martaquintana.github.io/2023-tfm-migjrv/" target="_blank">Read more</a>
+                    <a href="assets/master-thesis-marta-quintana.pdf" target="_blank" class="btn btn--theme no-link">Thesis (PDF)</a>
+                </div>
+                <div class="project-img">
+                    <img src="images/projects/seddi.png" alt="Parametric Editing Tool">
+                </div>
+            </div>
+
+            <div class="project-item right">
+                <div class="project-content">
+                    <h3>Bachelor's Thesis:<br> Gamification of an Educational Robotics Web Platform</h3>
+                    <p>
+                      <ul>I developed a two interactive games at enhancing the learning experience in educational robotics, in collaboration with Kibotics.<br>
+                        <li><strong>Roomba Collects Confetti</strong>: A programming game where players control a virtual Roomba to collect confetti, integrating basic robotics concepts.</li>  
+                        <li><strong>Game of the handkerchief</strong>: A digital adaptation of the traditional game, developing a new robot designed to catch objects
+                            and to engage students in a fun and educational way.</li>
+                          <li> Additionally, I conducted research on an <strong>Acoustic Teleoperator</strong> that allows for controlling a drone using voice commands. This research aimed to explore the integration of machine learning models in robotics and their potential applications in remote control systems.
+                          </li>
+                        </ul>
+                </p>
+                  <p>Currently available in <a class="no-link" href="https://kibotics.org/" target="_blank">Kibotics</a></p>
+                  <a class="button" href="https://roboticslaburjc.github.io/2020-tfg-marta-quintana/" target="_blank">Read more</a>
+                  <a href="assets/bachelor-thesis-marta-quintana.pdf" target="_blank" class="btn btn--theme no-link">Thesis (PDF)</a>
+                </div>
+                <div class="project-img">
+                  <img src="images/projects/tfg-kibotics.png" alt="Kibotics">
+                </div>
+                
+            </div>
+
+            <div class="project-item right">
+                <div class="project-content">
+                    <h3>Projects developed during the Master's studies</h3>
+                    <p>This video shows some of the practices carried out in the master's degree, such as exercises on mathematical foundations, animation with inverse kinematics, animation exercises in 3D Max, minigames in Unity, VR, 3D graphics pipeline, renders with the Nori ray tracer, deformations and fluids.</p></p>
+                </div>
+                <div class="project-img">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AQTgzlU7C5o?si=rSTGWeq_jNf3YPlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="project-item left">
+                <div class="project-content">
+                    <h3>Druck Mobile Game for Android</h3>
+                    <p>A mobile game developed by the 2FAMS Games team, where I developed the maze minigame and was responsible for supervising the team throughout the development process, as well as being a concept artist for the UI and social media.</p>
+                    <a class="button" href="https://2famsgames.github.io/" target="_blank">Read More</a>
+                </div>
+                <div class="project-img">
+                    <img src="images/projects/druck-game.png" alt="Videogame Druck">
+                </div>
+            </div>
+
+            <div class="project-item right">
+                <div class="project-content">
+                    <h3> Personal Project: 3D & 2D Pong</h3>
+                    <p>Classic Pong Game developed in JavaScript and Three.js</p>
+                    <a class="button" href="https://martaquintana.github.io/3D/Pong_pfinal/" target="_blank">Play 3D Pong</a>
+                    <a class="button" href="https://martaquintana.github.io/2018-19-CSAAI-Pong/pong-01.html" target="_blank">Play 2D Pong</a>
+                </div>
+                <div class="project-img">
+                    <img src="images/projects/pong.png" alt="Pong 3D y 2D">
+                </div>
+            </div>
+
+            <div class="project-item left">
+                <div class="project-content">
+                    <h3>Personal Project: Michi Pizzeria</h3>
+                    <p>Memory Game developed in JavaScript.</p>
+                    <a class="button" href="https://martaquintana.github.io/web/Michi-Pizzeria/" target="_blank">Play Michi Pizzeria</a>
+                </div>
+                <div class="project-img">
+                    <img src="images/projects/michi-pizzeria.png" alt="Memory"></div>
+                </div>
+            </div>
+            
+            <div class="photo-gallery">
+              <img src="./images/projects/baymax.png" alt="Foto 1">
+              <img src="./images/projects/mini-game.png" alt="Foto 2">
+              <img src="./images/projects/minigame.png" alt="Foto 3">
+              <img src="./images/projects/pokeball.png" alt="Foto 4">
+          </div>
+        </div>
+    </section>
+
+    <section id="art">
+      <h2>ART</h2>
+      <div class="contact-container">
+        <div class="container">
+          <div class="column">
+            <div class="instagram">
+              <figure>
+                <a href="https://www.instagram.com/p/Chr6E0LMffN/">
+                  <iframe src="https://www.instagram.com/p/Chr6E0LMffN/embed" width="250" height="350" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </a>
+              </figure>
+              <figure>
+                <a href="https://www.instagram.com/p/B2tYUZKiC84/">
+                  <iframe src="https://www.instagram.com/p/B2tYUZKiC84/embed" width="250" height="350" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </a>
+            </figure>
+          </div>
+
+          </div>
+          <div class="column">
+            <br>
+              <p class="justify"><strong class="strong-bg">PHOTOGRAPHY</strong>
+              <br><br>I am an amateur photographer. Saving my first salaries I bought a reflex camera. I love capturing moments, photographing wild animals, places and people.<br><br><br>
+              <br><br><br>A few years ago, I created an Instagram account <strong>"makinmyphotos"</strong> as a hobby to share my photography.<br>
+              In 2019 and 2022, I participated in the Cruz de la Plaza Photography Competition with these two images, and I was honored to receive an accessit award for each one. Although I dream of winning first place one day, this recognition was a significant achievement for me.</p>
+          </div>
+          </div>        
+          <div class="container">
+          <div class="column">
+            <br>
+            <p class="justify"><strong class="strong-bg">ART</strong><br>
+              <br>
+              I have been passionate about painting since I was very young.<br>In school, I attended extracurricular drawing and oil painting classes, although most of my learning has been self-taught.<br>I love working with watercolors, drawing with charcoal or pencil, and I am also fascinated by digital art. Recently, I’ve been exploring more with renders and animations. Not long ago, I created the Instagram <strong>"makinmyart_"</strong> where I share my drawings and projects with the world.
+              </p>
+          </div>
+          <div class="column">
+            <div class="instagram">
+              <figure>
+              <a href="https://www.instagram.com/p/C-_PPhzNnQg/">
+              <iframe src="https://www.instagram.com/p/C-_PPhzNnQg/embed" width="400" height="500" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+              </a>
+            </figure>
+          </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-container">
+        <h2><strong class="strong-bg">CONTACT ME</strong></h2>
+        <p class="justify">
+          <strong>If you are for a skilled and passionate software developer</strong> for your next project or team, <strong>I would love to hear from you</strong>. With experience in both <strong>frontend and backend development</strong>, as well as a strong background in <strong>3D technologies</strong>, <strong>I am open to new opportunities and collaborations</strong>. I'm always excited to explore creative opportunities and contribute to innovative projects.
+          <br><br>
+        <strong>If you're interested in working with me, discussing a project, or making a job offer, you can reach me at 
+          <a href="mailto: martaqp97@gmail.com" class="no-link">
+            martaqp97@gmail.com 
+          </a>
+          or connect with me on <a class="no-link" href="https://www.linkedin.com/in/marta-quintana-portales-4627b8207/">
+          LinkedIn</strong>
+          </a>. Please use my email for business inquiries, I will get back to you as soon as possible. <strong>Thank you! :)</strong>           
+        </p>
+            
+        <div class="socialmedia">
+          <figure class="figure-media">
+            <a href="https://discord.com/users/1086976939014750239">
+              <img class="logo-media" src="./images/media/discord.png" alt="Discord" />
+            </a>
+          </figure>
+          <figure class="figure-media">
+            <a href="https://github.com/martaquintana">
+              <img class="logo-media2" src="./images/media/github.png" alt="GitHub">
+            </a>
+          </figure>
+          <figure class="figure-media">
+            <a href="https://www.linkedin.com/in/marta-quintana-portales-4627b8207/">
+              <img class="logo-media" src="./images/media/linkedin.png" alt="LinkedIn">
+            </a>
+          </figure>
+          <figure class="figure-media">
+            <a href="mailto: martaqp97@gmail.com">
+              <img  class="logo-media" src="./images/media/gmail.png" alt="Gmail">
+            </a>
+          </figure>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <footer>
+      <p>© Copyright
+      <script>
+        document.write(new Date().getFullYear());
+      </script> Made by<a class="link" href="https://martaquintana.github.io">Marta Quintana</a>
+      </p>
+    <div>
+      <a href="https://www.linkedin.com/in/marta-quintana-portales-4627b8207/">LinkedIn</a> | <a href="https://github.com/martaquintana">GitHub</a> |
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+    
+  <script src="script.js"></script>
+  </body>
+</html>
