@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/jpg" href="./images/home/logo.png"/>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+
   </head>
   <body>
+
     <header>
       <div class="logo-container">
         <figure>
@@ -37,20 +40,10 @@
 
     <!-- Mini Game / A-Frame -->
     <section id="home">
-      <div id="mini-game" class="aframe-container">
-        <!-- <a-scene embedded>
-          <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
-                animation="property: rotation; to: 0 405 0; loop: true; dur: 4000; easing: linear"></a-box>
-          <a-sphere position="1 1.25 -5" radius="1.25" color="#EF2D5E"
-                    animation="property: position; to: 1 2.5 -5; loop: true; dir: alternate; dur: 2000"></a-sphere>
-          <a-cylinder position="0 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
-                      animation="property: color; to: #FF0000; loop: true; dir: alternate; dur: 1000"></a-cylinder>
-          <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
-          <a-sky color="#ECECEC"></a-sky>
-        </a-scene>
-        -->
-        <iframe class="aframe-container" src="https://martaquintana.github.io/3D/Pong_pfinal/" height:"300px" ></iframe>
+      <div id="game-container" >
       </div>
+        <script src="game.js"></script>
+
       
       <div >
         <h1>Hey, Welcome to my website!<br> I'm Marta</h1>
