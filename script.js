@@ -4,6 +4,7 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
 
 let currentIndex = 0;
 const slides = document.querySelectorAll('.carousel-item');
+let slideInterval = setInterval(nextSlide, 3000); // Define el intervalo aquí
 
 function showSlide(index) {
     if (index >= slides.length) {
@@ -20,13 +21,15 @@ function showSlide(index) {
 
 function nextSlide() {
     showSlide(currentIndex + 1);
+    resetInterval();
 }
 
 function prevSlide() {
     showSlide(currentIndex - 1);
+    resetInterval();
 }
 
-// Automatic slideshow
-setInterval(() => {
-    nextSlide();
-}, 3000);
+function resetInterval() {
+    clearInterval(slideInterval); // Limpia el intervalo existente
+    slideInterval = setInterval(nextSlide, 3000); // Inicia uno nuevo
+}
