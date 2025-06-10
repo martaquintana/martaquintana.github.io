@@ -1,0 +1,155 @@
+import bpy
+
+# Create material with color
+def create_material(name, color):
+    material = bpy.data.materials.new(name=name)
+    material.use_nodes = True
+    bsdf = material.node_tree.nodes["Principled BSDF"]
+    bsdf.inputs["Base Color"].default_value = color + (1,)
+    return material
+
+# Create box wall 
+def create_wall(size, location, rotation, material):
+    bpy.ops.mesh.primitive_plane_add(size=size, location=location)
+    wall = bpy.context.active_object
+    wall.rotation_euler = rotation
+    if material:
+        if wall.data.materials:
+            wall.data.materials[0] = material
+        else:
+            wall.data.materials.append(material)
+    return wall
+
+'''
+# Add Area light
+def create_light(location, light_type='AREA', energy=1000, size=5):
+    bpy.ops.object.light_add(type=light_type, location=location)
+    light = bpy.context.active_object
+    light.data.energy = energy  # Ajustar la intensidad de la luz
+    light.data.size = size  # Tamaño de la luz de área
+    light.data.shape = 'SQUARE'  # Forma de la luz de área (puede ser cuadrada o rectangular)
+    return light
+'''
+
+# Emitter material
+def create_emission_material(color, strength=1000):
+    # Crear el material
+    material = bpy.data.materials.new(name="EmissionMaterial")
+    material.use_nodes = True
+
+    # Obtener el árbol de nodos del material
+    material_nodes = material.node_tree.nodes
+
+    # Crear un nodo de emisión
+    emission_node = material_nodes.new(type='ShaderNodeEmission')
+    emission_node.inputs["Color"].default_value = color + (1,)  # Color de emisión
+    emission_node.inputs["Strength"].default_value = strength  # Fuerza de la emisión
+    
+    # Crear un nodo de salida para conectar la emisión
+    output_node = material_nodes["Material Output"]
+    
+    # Conectar el nodo de emisión al nodo de salida
+    material.node_tree.links.new(emission_node.outputs["Emission"], output_node.inputs["Surface"])
+    
+    return material
+
+# Rectangle Emitter
+def create_emitter(location, size=(5, 10), color=(1, 1, 1), strength=1000):
+    bpy.ops.mesh.primitive_plane_add(size=size[0], location=location)
+    emitter = bpy.context.active_object
+    emitter.name = "LightEmitter"
+    emitter.scale = (size[0] / 2, size[1] / 2, 1)  # Ajustar el tamaño para crear un rectángulo
+    emitter_material = create_emission_material(color, strength)
+    emitter.data.materials.append(emitter_material)  # Asignamos el material de emisión
+    return emitter
+
+#  Create camera
+def create_camera(location, rotation):
+    bpy.ops.object.camera_add(location=location)
+    camera = bpy.context.active_object
+    camera.rotation_euler = rotation
+    return camera
+# Función para crear una esfera
+def create_sphere(name, location, radius=1, material=None, segments=64, rings=32):
+    bpy.ops.mesh.primitive_uv_sphere_add(
+        radius=radius,
+        location=location,
+        segments=segments,
+        ring_count=rings
+    )
+    sphere = bpy.context.active_object
+    sphere.name = name
+    if material:
+        sphere.data.materials.append(material)  # Asignar material a la esfera
+    bpy.ops.object.shade_smooth()
+
+    return sphere
+
+
+# Función para crear un material espejado
+def create_mirror_material():
+    material = bpy.data.materials.new(name="MirrorMaterial")
+    material.use_nodes = True
+    bsdf = material.node_tree.nodes["Principled BSDF"]
+    
+    # Configurar para ser un material espejo
+    bsdf.inputs["Base Color"].default_value = (1, 1, 1, 1)  # Color blanco
+    bsdf.inputs["Metallic"].default_value = 1  # Alta cantidad de metalización
+    bsdf.inputs["Roughness"].default_value = 0  # Sin rugosidad (reflejo nítido)
+    
+    return material
+# Create Cornell Box
+def create_cornell_box():
+    # Size of the box
+    box_size = 10
+    
+    # Materiales de las paredes (rojo, verde, blanco)
+    red_material = create_material("Red", (1, 0, 0))
+    green_material = create_material("Green", (0, 1, 0))
+    white_material = create_material("White", (1, 1, 1))
+    
+    walls = []
+
+    # Pared frontal (verde)
+    walls.append(create_wall(box_size, (0, box_size / 2, 0),(1.5708, 0, 3.14159), green_material))
+    
+    # Pared trasera (roja) rotada en 180 grados alrededor del eje Z
+    walls.append(create_wall(box_size, (0, -box_size / 2, 0), (1.5708, 0, 3.14159), red_material))
+    
+    # Pared izquierda (blanca) rotada 90 grados en el eje X
+    walls.append(create_wall(box_size, (-box_size / 2, 0, 0), (1.5708, 0, 1.5708), white_material))
+    
+    # Techo (blanco)
+    walls.append(create_wall(box_size, (0, 0, box_size / 2), (0, 0, 0), white_material))
+    
+    # Suelo (blanco) rotado 180 grados en el eje X
+    walls.append(create_wall(box_size, (0, 0, -box_size / 2), (3.14159, 0, 0), white_material))
+
+    # Seleccionar todos los objetos de la caja y unirlos en uno solo
+    bpy.ops.object.select_all(action='DESELECT')  # Deseleccionar todo
+    for wall in walls:
+        wall.select_set(True)  # Seleccionar cada pared
+
+    bpy.context.view_layer.objects.active = walls[0]  # Establecer la primera pared como objeto activo
+    bpy.ops.object.join()  # Unir todos los objetos seleccionados en uno solo
+    
+    # Nombrar el objeto combinado como "Box"
+    bpy.context.active_object.name = "Box"
+    #create_light(location=(0, 0, 4.5), light_type='AREA', energy=1000, size=5)
+    create_emitter(location=(0, 0, box_size/2-0.01), size=(2, 4), color=(1, 1, 1), strength=10)
+
+
+    create_camera(location=(box_size * 3.25, 0, 0), rotation=(1.5708, 0,1.5708))  # Cámara posicionada en el frente
+
+    sphere_material = create_mirror_material()
+    radius_sphere= 2 
+    create_sphere("Sphere",(-1.5, -2.5, -box_size/2+radius_sphere), radius_sphere, white_material)  # Esfera 1
+    create_sphere("Mirror Sphere",(1.5, 2.5, -box_size/2+radius_sphere), radius_sphere, sphere_material)  # Esfera 2
+
+# Limpiar la escena antes de crear la Cornell Box
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+# Crear la Cornell Box
+create_cornell_box()
+
